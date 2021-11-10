@@ -1,0 +1,160 @@
+@use "sass:math";
+$glow-color: rgba(161, 160, 160, 0.589);
+.loader {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  overflow: hidden;
+
+  .loader-name {
+    z-index: 5 !important;
+    user-select: none;
+    font-size: min(15vw, 10rem);
+    font-family: "Special Elite", cursive;
+    background: linear-gradient(
+      to top right,
+      white 50%,
+      grey,
+      rgba(128, 128, 128, 0.301)
+    );
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.3ch;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+  }
+  .glow-animation-no-delay {
+    animation: text-glow 2s infinite ease-in-out;
+  }
+  .loader-name-animated {
+    animation: background-grow 2s forwards linear,
+      text-glow 2s infinite ease-in-out 2s;
+  }
+  .flip-animation {
+    animation: char-flip 1s;
+  }
+}
+@keyframes background-grow {
+  from {
+    clip-path: circle(0% at 0 100%);
+  }
+  to {
+    clip-path: circle(150% at 0 100%);
+  }
+}
+
+@keyframes text-glow {
+  @for $i from 0 through 50 {
+    #{percentage($i*0.01)} {
+      text-shadow: 0 0 #{$i * 2}px $glow-color;
+    }
+  }
+  @for $i from 50 through 100 {
+    #{percentage($i*0.01)} {
+      text-shadow: 0 0 #{-$i * 2}px $glow-color;
+    }
+  }
+}
+@keyframes char-flip {
+  0% {
+    transform: perspective(400px) scaleX(1) translateZ(0) rotateY(-1turn);
+    animation-timing-function: ease-out;
+  }
+  40% {
+    transform: perspective(400px) scaleX(1) translateZ(150px) rotateY(-190deg);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: perspective(400px) scaleX(1) translateZ(150px) rotateY(-170deg);
+    animation-timing-function: ease-in;
+  }
+  80% {
+    transform: perspective(400px) scale3d(0.95, 0.95, 0.95) translateZ(0)
+      rotateY(0deg);
+    animation-timing-function: ease-in;
+  }
+  to {
+    transform: perspective(400px) scaleX(1) translateZ(0) rotateY(0deg);
+    animation-timing-function: ease-in;
+  }
+}
+
+@function multiple-box-shadow($n) {
+  $value: "#{random(2000)}px #{random(2000)}px #FFF";
+  @for $i from 2 through $n {
+    $value: "#{$value} , #{random(2000)}px #{random(2000)}px #FFF";
+  }
+  @return unquote($value);
+}
+
+$shadows-small: multiple-box-shadow(700);
+$shadows-medium: multiple-box-shadow(200);
+$shadows-big: multiple-box-shadow(100);
+
+#stars {
+  width: 1px;
+  height: 1px;
+  background: transparent;
+  box-shadow: $shadows-small;
+  animation: animStar 50s linear infinite;
+  z-index: 0 !important;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: $shadows-small;
+  }
+}
+
+#stars2 {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: $shadows-medium;
+  animation: animStar 100s linear infinite;
+  z-index: 0 !important;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: $shadows-medium;
+  }
+}
+#stars3 {
+  width: 3px;
+  height: 3px;
+  background: transparent;
+  box-shadow: $shadows-big;
+  animation: animStar 150s linear infinite;
+  z-index: 0 !important;
+
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 2000px;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: $shadows-big;
+  }
+}
+
+@keyframes animStar {
+  from {
+    transform: translate(-500px, -300px);
+  }
+  to {
+    transform: translate(-1000px, -2000px);
+  }
+}

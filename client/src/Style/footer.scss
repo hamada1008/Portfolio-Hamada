@@ -1,0 +1,54 @@
+footer {
+  height: 50px;
+  background: linear-gradient(to bottom, var(--secondary-bg-color), #ff4f4fb6);
+  display: flex;
+  flex-flow: nowrap row;
+  justify-content: space-around;
+  align-items: center;
+  padding-inline: 20px;
+  font-size: 1.2rem;
+  margin-top: 35px;
+  //   border-top: white solid 1px;
+  box-shadow: 0px -10px 20px 0px rgb(94, 94, 94);
+  div {
+    a {
+      font-size: 1.8rem;
+      padding-inline: 5px;
+      &:hover {
+        --anchor-hover-color: black !important;
+      }
+      i {
+        &::before {
+          color: var(--anchor-hover-color);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  p {
+    font-size: 0.9rem;
+  }
+  .web-links {
+    transform: scale(0.9);
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  p {
+    font-size: 0.8rem;
+  }
+  .web-links {
+    transform: scale(0.7);
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  p {
+    font-size: 0.6rem;
+  }
+  .web-links {
+    transform: scale(0.5);
+  }
+}

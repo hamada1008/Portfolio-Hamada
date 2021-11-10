@@ -1,0 +1,128 @@
+$url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/800px-HTML5_logo_and_wordmark.svg.png",
+  "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/9/96/Sass_Logo_Color.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/d/d4/Javascript-shield.svg",
+  "../Assets/RN.png", "../Assets/RN.png",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg",
+  "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
+  "../Assets/express.svg", "http://www.passportjs.org/images/logo.svg",
+  "https://icons-for-free.com/iconfiles/png/512/vscode+icons+type+ejs-1324451285990778004.png",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  "../Assets/mongoose.png",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-plain.svg",
+  "https://jwt.io/img/pic_logo.svg", "../Assets/rest.png";
+
+#skills {
+  height: 490px;
+}
+.skills-container {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 97%;
+}
+
+.skillImg {
+  position: relative;
+  width: max(11%, 80px);
+  font-size: 100%;
+  font-weight: bold;
+  text-align: center;
+}
+
+@for $i from 1 through 18 {
+  .skillImg:nth-of-type(#{$i}) {
+    &::before {
+      content: "";
+      background: url("#{nth($url, $i)}");
+      width: 70%;
+      aspect-ratio: 1;
+      background-size: 100% 100%;
+      left: 0;
+      transform: translate(19%, -10%);
+      bottom: calc(25px + 0.5rem);
+      position: absolute;
+      @if $i == 1 {
+        clip-path: inset(14% 0 0 0);
+      }
+      @if $i == 2 {
+        clip-path: inset(14% 0 0 0);
+      }
+      @if $i == 4 {
+        clip-path: inset(14% 0 0 0);
+      }
+      @if $i == 5 {
+        clip-path: inset(0 0 14% 0);
+        transform: translateX(19%);
+      }
+      @if $i == 6 {
+        clip-path: inset(0 0 14% 0);
+        transform: translateX(19%);
+      }
+    }
+  }
+}
+
+.section-header {
+  position: relative;
+}
+.animated-band {
+  display: inline-block;
+  font-size: inherit;
+  position: relative;
+  color: inherit;
+}
+.animation-on {
+  animation: title-rubber-animation 1s infinite ease-out;
+  @keyframes title-rubber-animation {
+    0% {
+      transform: scale(1, 1);
+    }
+    30% {
+      transform: scale(1.2, 0.6);
+    }
+    40% {
+      transform: scale(1, 1);
+    }
+    50% {
+      transform: scale(0.6, 1.2);
+    }
+    60% {
+      transform: scale(1.05, 0.95);
+    }
+
+    75% {
+      transform: scale(1.02, 0.98);
+    }
+    100% {
+      transform: scale(1, 1);
+    }
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  .section-header {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+  }
+}
+
+@media only screen and (max-width: 516px) {
+  .skillImg {
+    line-break: none;
+
+    &:nth-child(6) {
+      font-size: 80%;
+    }
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .section-header {
+    font-size: 2rem;
+  }
+}

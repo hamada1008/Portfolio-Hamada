@@ -1,0 +1,235 @@
+.racing-car-scene {
+  width: 70%;
+  height: auto;
+  position: relative;
+  margin-top: -60px;
+  overflow: hidden;
+}
+
+#right-tire,
+#left-tire {
+  animation: tire-animation linear 5s infinite;
+}
+#left-tire {
+  transform-origin: 3.67024280067758% 72.92110874200426%;
+}
+#right-tire {
+  transform-origin: 16.03613777526821% 72.92110874200426%;
+}
+
+.tire-wrap {
+  animation: tire-wrapper-animation 2s linear infinite;
+}
+@keyframes tire-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes tire-wrapper-animation {
+  0% {
+    transform: translateY(0);
+  }
+  10%,
+  11% {
+    transform: translateY(0.8%);
+  }
+  13%,
+  100% {
+    transform: translateY(0);
+  }
+}
+
+#racing-car {
+  animation: car-progressing-animation 120s ease-out forwards;
+  @keyframes car-progressing-animation {
+    from {
+      transform: translateX(3%);
+    }
+    to {
+      transform: translateX(65%);
+    }
+  }
+}
+
+.racing-car-scene-loading {
+  #left-tire,
+  #right-tire,
+  #racing-car,
+  .tire-wrap {
+    animation-play-state: paused !important;
+  }
+}
+#question-mark {
+  animation: thinking-tilt 2s infinite ease;
+  transform-origin: 20.07963594994312% 49.68017057569296%;
+}
+@keyframes thinking-tilt {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  55% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animated-tree {
+  animation: tree-animation 2s forwards linear;
+  @keyframes tree-animation {
+    from {
+      transform: translateX(20%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.racing-car-scene-fulfilled {
+  .animated-flag {
+    animation: flag-animation 2s forwards linear;
+    @keyframes flag-animation {
+      from {
+        transform: translateX(20%);
+      }
+      to {
+        transform: translateX(-80%);
+      }
+    }
+  }
+  #racing-car {
+    transform: translateX(20%);
+    animation: none !important;
+  }
+  .tire-wrap {
+    animation: none !important;
+  }
+  .tire-animation-stop {
+    animation: tire-rotation-then-stop 2s linear forwards !important;
+    @keyframes tire-rotation-then-stop {
+      0% {
+        transform: rotate(0deg);
+      }
+      99% {
+        transform: rotate(360deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+  }
+  #person {
+    opacity: 0;
+    animation: element-appears 1s 2.5s linear forwards;
+  }
+  #bubble {
+    opacity: 0;
+    animation: element-appears 1s 2.5s linear forwards;
+  }
+  #thank-speech {
+    clip-path: inset(0 100% 0 0);
+    animation: thank-you-appears 1s 3s linear forwards;
+  }
+}
+
+.racing-car-scene-rejected {
+  #racing-car {
+    transform: translateX(10%);
+    animation: none !important;
+  }
+  .tire-wrap {
+    animation: none !important;
+  }
+  .tire-animation-stop {
+    animation: tire-rotation-then-stop 2s linear forwards !important;
+    @keyframes tire-rotation-then-stop {
+      0% {
+        transform: rotate(0deg);
+      }
+      99% {
+        transform: rotate(360deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+  }
+  #XMLID_5_ {
+    opacity: 0;
+    animation: element-appears 1s 2.5s linear forwards;
+  }
+  #bubble-rejected {
+    opacity: 0;
+    animation: element-appears 1s 2.5s linear forwards;
+  }
+  #thank-speech-rejected {
+    clip-path: inset(0 100% 0 0);
+    animation: thank-you-appears 1s 3s linear forwards;
+  }
+  #broken-racing-car {
+    opacity: 0;
+    transform: translateY(3%);
+    animation: element-appears 1s 2.5s linear forwards;
+  }
+  #tree-crash {
+    animation: tree-crash-animation 2s forwards linear;
+    @keyframes tree-crash-animation {
+      from {
+        transform: translateX(40%);
+      }
+      to {
+        transform: translateX(-3%);
+      }
+    }
+  }
+  #racing-car {
+    transform: translateX(20%);
+    opacity: var(--opacity-broken);
+    animation: car-disappears 0.5s linear 2s forwards !important;
+    @keyframes car-disappears {
+      from {
+        --opacity-broken: 1;
+      }
+      to {
+        --opacity-broken: 0;
+      }
+    }
+  }
+  .flag-rejected {
+    opacity: 0;
+  }
+}
+
+@keyframes element-appears {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes thank-you-appears {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@media only screen and (max-width: 513px) {
+  .racing-car-scene {
+    width: 98%;
+  }
+}

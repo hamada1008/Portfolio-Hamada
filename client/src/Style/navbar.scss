@@ -1,0 +1,151 @@
+.navbar {
+  background: linear-gradient(
+    to bottom,
+    #ff000081,
+    #ff4f4fb6 40%,
+    #ff4f4fb6 60%,
+    #ff000081
+  );
+  width: 100vw;
+  height: fit-content;
+  min-height: max-content;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 20;
+  box-shadow: 0 5px 15px 0px #861414bb, 0 -5px 15px 0px #861414bb;
+  backdrop-filter: blur(5px);
+  font-family: "IM Fell English SC", serif;
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  z-index: 20;
+}
+.navbar a {
+  text-decoration: none;
+  position: relative;
+}
+
+.navbar-links {
+  list-style: none;
+  display: inherit;
+}
+
+.navbar-links li {
+  margin: 0 10px;
+}
+.navbar a:visited {
+  text-decoration: none;
+}
+.navbar a:active {
+  color: var(--secondary-header-color);
+}
+.navbar a:not(.navbar > a):hover::after {
+  content: "";
+  height: 4px;
+  background: var(--secondary-header-color);
+  position: absolute;
+  bottom: -5;
+  left: 0;
+  right: 0;
+  border-radius: 10px;
+}
+
+.highlighted {
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
+}
+
+.navbar-name {
+  --content-left: "O";
+  --content-right: "H.";
+  --animation-left: none;
+  --animation-right: none;
+  --x-position: -100%;
+  font-family: "Ephesis", cursive;
+  font-size: 2.2rem;
+  font-weight: bolder;
+  width: 6.5em;
+  text-align: center;
+  height: 60px;
+  .name-animated,
+  .name-animated-return {
+    position: relative;
+    &::before {
+      content: var(--content-left);
+      animation: var(--animation-left);
+      position: absolute;
+      transform: translate(var(--x-position), 5px);
+    }
+    &::after {
+      content: var(--content-right);
+      animation: var(--animation-right);
+      position: absolute;
+      transform: translate(0%, 5px);
+    }
+  }
+  &:hover {
+    --animation-left: left-transition 0.7s forwards ease-out;
+    --animation-right: right-transition 0.7s forwards ease-out;
+  }
+
+  @keyframes right-transition {
+    15% {
+      --content-right: "Ha";
+    }
+    45% {
+      --content-right: "Ham";
+    }
+    60% {
+      --content-right: "Hama";
+    }
+    75% {
+      --content-right: "Hamad";
+    }
+    100% {
+      --content-right: "Hamada.";
+    }
+  }
+  @keyframes left-transition-back {
+    from {
+      transform: translate(-3.25em, 5px);
+    }
+    to {
+      transform: translate(-100%, 5px);
+    }
+  }
+  @keyframes left-transition {
+    0% {
+      transform: translate(-100%, 5px);
+    }
+    15% {
+      --content-left: "Ou";
+    }
+    30% {
+      --content-left: "Ous";
+    }
+    45% {
+      --content-left: "Ouss";
+    }
+    60% {
+      --content-left: "Oussa";
+    }
+    75% {
+      --content-left: "Oussam";
+    }
+    100% {
+      transform: translate(-3.25em, 5px);
+      --content-left: "Oussama";
+      --x-position: -3.25em;
+    }
+  }
+}
+.navbar-name:not(:hover) {
+  .name-animated-return {
+    &::before {
+      animation: left-transition-back 0.5s ease-out;
+    }
+  }
+}

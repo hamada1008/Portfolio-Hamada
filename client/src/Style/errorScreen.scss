@@ -1,0 +1,61 @@
+.error-screen {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1001%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(29%2c 29%2c 29%2c 1)'%3e%3c/rect%3e%3cpath d='M0%2c498.909C90.623%2c515.956%2c168.498%2c432.056%2c241.266%2c375.418C308.616%2c322.997%2c373.244%2c264.11%2c403.968%2c184.486C433.769%2c107.255%2c421.357%2c23.046%2c408.809%2c-58.778C396.367%2c-139.908%2c389.149%2c-228.808%2c331.609%2c-287.341C274.96%2c-344.968%2c187.725%2c-357.482%2c107.314%2c-365.478C37.144%2c-372.456%2c-26.742%2c-337.227%2c-96.882%2c-329.95C-187.801%2c-320.518%2c-290.771%2c-369.506%2c-365.209%2c-316.456C-439.743%2c-263.337%2c-467.115%2c-158.5%2c-465.868%2c-66.982C-464.688%2c19.584%2c-411.286%2c95.05%2c-358.665%2c163.797C-314.421%2c221.601%2c-242.414%2c244.744%2c-189.225%2c294.44C-119.967%2c359.15%2c-93.15%2c481.387%2c0%2c498.909' fill='%23171717'%3e%3c/path%3e%3cpath d='M1440 1036.449C1541.261 1034.018 1645.396 1065.1309999999999 1737.4 1022.764 1835.213 977.723 1914.327 895 1959.478 797.238 2004.726 699.266 2016.883 585.117 1987.4769999999999 481.28499999999997 1959.7179999999998 383.27 1865.345 326.00800000000004 1803.167 245.31400000000002 1736.165 158.36 1705.91 37.77200000000005 1607.796-11.461999999999989 1504.677-63.20799999999997 1379.043-57.063999999999965 1268.875-22.798000000000002 1159.621 11.183999999999969 1066.337 85.37 999.018 177.887 934.9680000000001 265.911 916.446 374.744 901.176 482.529 885.935 590.11 868.699 701.517 910.637 801.752 953.197 903.472 1032.476 992.577 1133.278 1037.268 1228.676 1079.5639999999999 1335.676 1038.954 1440 1036.449' fill='%23232323'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1001'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: nowrap row;
+  font-size: clamp(1rem, 1.5vw, 2rem);
+  div {
+    margin: 30px;
+    * {
+      margin: 15px;
+    }
+    width: max(30%, 280px);
+    text-align: center;
+    line-height: 40px;
+    h1 {
+      font-weight: bolder;
+      font-size: 3em;
+      margin-bottom: 50px !important;
+      margin-top: 30px !important;
+    }
+    h4 {
+      padding-inline: 20px;
+    }
+    p {
+      font-size: 0.8em;
+    }
+    a {
+      color: red;
+      text-decoration: none;
+      transition: color 1s ease;
+      margin: 0;
+      &:hover {
+        color: var(--secondary-header-color);
+      }
+    }
+    &:first-of-type {
+      border: 5px outset white;
+      border-radius: 50px;
+    }
+  }
+}
+
+@media only screen and (max-width: 784px) {
+  .error-screen {
+    margin: auto;
+    flex-flow: nowrap column;
+    div {
+      * {
+        margin: 0;
+      }
+      h1 {
+        margin-block: 10px !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,308 @@
+@mixin flex-box {
+  display: flex;
+  flex-wrap: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+#contact {
+  padding-top: 50px;
+}
+.contact {
+  &-container {
+    width: 95%;
+    min-height: 500px;
+    max-height: fit-content;
+    @include flex-box;
+  }
+  &-sections {
+    flex: 1;
+    padding: 15px;
+    height: 75%;
+    @include flex-box;
+    flex-flow: row wrap;
+    &:first-child {
+      border-right: 3px double teal;
+    }
+  }
+  &-intro {
+    h2 {
+      @include flex-box;
+      font-weight: bold;
+      color: var(--secondary-header-color);
+    }
+    width: 90%;
+    text-align: center;
+    line-height: 3ch;
+  }
+  &-info {
+    list-style: none;
+    width: 60%;
+    min-width: 250px !important;
+    margin: 0 auto;
+    border: white 2px outset;
+    padding: 15px;
+    border-radius: 10px;
+
+    li {
+      z-index: 10 !important;
+      i {
+        margin-right: 10px;
+        font-size: 1.6vw;
+      }
+      width: 100%;
+      height: 40px;
+      text-align: center;
+      margin: 0 auto;
+      font-size: 1.5vw;
+      &:first-child {
+        margin-bottom: 10px;
+        a {
+          text-decoration: none;
+          transition: all 1s;
+          &:hover {
+            font-weight: bold;
+            font-size: 1.1em;
+          }
+        }
+      }
+      &:last-child {
+        padding-top: 10px;
+        margin-bottom: 0;
+        font-weight: bolder;
+      }
+    }
+  }
+}
+.clipboard {
+  cursor: pointer;
+}
+.clipboard-animated {
+  animation: li-text-change 0.8s forwards linear;
+  @keyframes li-text-change {
+    from {
+      clip-path: inset(0 100% 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+}
+#desktop-icon {
+  width: 100px;
+  aspect-ratio: 1;
+  margin-inline: 20px;
+}
+#opening-tag {
+  animation: op-tag-animation 5s infinite ease;
+}
+#closing-tag {
+  animation: cl-tag-animation 5s infinite ease;
+}
+#svg-tag {
+  animation: svg-tag-animation 5s infinite linear;
+  opacity: var(--svg-opacity);
+}
+
+@keyframes op-tag-animation {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-15%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes cl-tag-animation {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(21%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes svg-tag-animation {
+  0% {
+    --svg-opacity: 0;
+  }
+
+  59% {
+    --svg-opacity: 1;
+  }
+  60%,
+  100% {
+    --svg-opacity: 0;
+  }
+}
+
+form {
+  border: 1px white solid;
+  width: 80%;
+  height: fit-content;
+  @include flex-box;
+  flex-flow: column wrap;
+  padding: 50px 10px 20px 10px;
+  background: #2b2828a8;
+  border-radius: 30px;
+  transition: all 1s ease;
+  box-shadow: 3px 5px 2px 0px var(--secondary-bg-color);
+  div {
+    position: relative;
+    width: 90%;
+    margin-block: 10px;
+    @include flex-box;
+    justify-content: flex-start;
+    align-items: flex-start;
+    label {
+      display: inline-block;
+      width: 40%;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    input:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px #1d1d1d inset !important;
+      box-shadow: 0 0 0 30px #1d1d1d inset !important;
+      -webkit-text-fill-color: white;
+    }
+    textarea,
+    input {
+      position: relative;
+      width: 60%;
+      height: 40px;
+      padding: 10px 10px;
+      background: #1d1d1d !important;
+      font-size: 1.1 rem;
+      border-radius: 10px;
+      border: outset 2px rgb(177, 177, 177);
+      transform: translateY(-10px);
+      &::placeholder {
+        transition: all 0.5s ease;
+      }
+      &:focus-visible {
+        outline: inset 2px rgb(177, 177, 177);
+        outline-offset: 2px;
+        &::placeholder {
+          position: absolute;
+          color: var(--secondary-header-color);
+          top: 0px;
+          font-size: 0.8em;
+        }
+      }
+    }
+    textarea {
+      resize: none;
+      overflow: auto;
+      height: 100px;
+      + .bubble {
+        bottom: 15%;
+        left: 45%;
+      }
+    }
+    button {
+      box-shadow: 3px 4px 0px 0px #899599;
+      background: linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+      background-color: #ededed;
+      border-radius: 15px;
+      border: 1px solid #d6bcd6;
+      display: inline-block;
+      cursor: pointer;
+      color: #000000;
+      font-size: 1.2rem;
+      padding: 7px 25px;
+      text-decoration: none;
+      text-shadow: 0px 1px 0px #e1e2ed;
+      margin: 10px auto -10px auto;
+      &:hover {
+        background: linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+        background-color: #bab1ba;
+      }
+      &:active {
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
+}
+
+form:hover {
+  transform: translateZ(8px);
+  box-shadow: 1px 40px 30px -30px var(--secondary-bg-color);
+}
+.contact-sections {
+  perspective: 500px;
+  perspective-origin: top center;
+}
+
+.sending-form-animation {
+  @include flex-box;
+  height: fit-content;
+}
+
+@media only screen and (max-width: 961px) {
+  .contact-info {
+    i,
+    li {
+      height: 20px !important;
+      font-size: 0.85rem;
+    }
+  }
+}
+@media only screen and (max-width: 950px) {
+  #contact {
+    .section-header {
+      margin-bottom: 10px;
+    }
+  }
+  .contact-container {
+    flex-flow: nowrap column;
+    margin: auto;
+  }
+  .contact-sections {
+    width: 80%;
+    &:first-child {
+      border-right: none;
+      border-bottom: 3px double teal;
+      padding-bottom: 20px;
+    }
+  }
+  form {
+    padding-top: 20px;
+    margin-bottom: 30px;
+  }
+}
+@media only screen and (max-width: 513px) {
+  .contact-sections {
+    width: 95%;
+    &:last-child {
+      h3 {
+        font-size: 3.2vw;
+      }
+    }
+  }
+  form {
+    margin-bottom: 45px;
+    div:last-child {
+      transform: scale(0.8);
+      margin-top: 0;
+    }
+    button {
+      margin: 0;
+    }
+  }
+  input,
+  textarea {
+    width: 70% !important;
+  }
+  label {
+    font-size: 3.5vw !important;
+    width: 30% !important;
+  }
+}

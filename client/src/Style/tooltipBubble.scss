@@ -1,0 +1,42 @@
+.bubble {
+  position: absolute;
+  background: #ffffff;
+  color: #000000;
+  font-family: Comic Sans MS;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 30px;
+  border-radius: 20px;
+  padding: 0px;
+  z-index: 20 !important;
+  bottom: -100%;
+  right: 5%;
+  &-animation {
+    animation: error-bubble-animation 0.5s ease forwards;
+  }
+}
+.bubble:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  z-index: 1;
+  border-style: solid;
+  border-color: #ffffff transparent;
+  border-width: 0 10px 12px;
+  top: -12px;
+  left: 31%;
+  margin-left: -10px;
+}
+
+@keyframes error-bubble-animation {
+  from {
+    transform: scale(0.1, 0.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,99 @@
+:root {
+  --primary-bg-color: #1d1d1d;
+  --secondary-bg-color: #ff0000;
+  --secondary-header-color: #08fdd8;
+}
+html {
+  min-width: 330px;
+}
+html,
+.detail-offcanvas {
+  scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+    width: 1vw;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      to right,
+      #ff000081,
+      #ff4f4fb6 40%,
+      #ff4f4fb6 60%,
+      #ff000081
+    );
+    border-radius: 20px;
+    position: fixed;
+  }
+  &::-webkit-scrollbar-track {
+    &:hover {
+      background-color: #181818;
+    }
+  }
+  &::-webkit-scrollbar-corner {
+    background: var(--primary-bg-color);
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--primary-bg-color);
+  font-family: "Mada", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@function makeLongShadow($color) {
+  $val: 0px 0px $color;
+  @for $j from 1 through 15 {
+    $color2: lighten($color, $j * 1.5);
+    $val: #{$val}, #{$j}px -#{$j}px #{$color2};
+  }
+  @return $val;
+}
+
+@mixin longShadow($color) {
+  text-shadow: makeLongShadow($color);
+}
+
+*,
+*::before,
+*::after,
+*:hover {
+  color: white;
+}
+$sectionList: About, Skills, Projects, Contact;
+$sectionSelectorList: about, skills, projects, contact;
+*:is(#about, #skills, #projects, #contact) {
+  padding-top: 50px;
+  position: relative;
+}
+@for $i from 1 through 4 {
+  ##{nth($sectionSelectorList, $i)}::before {
+    content: "#{nth($sectionList, $i)}";
+    position: absolute;
+    top: 15%;
+    left: 5%;
+    opacity: 0.3;
+    font-size: 12rem;
+    z-index: -10;
+    overflow: hidden;
+    color: rgba(70, 61, 61, 0.295);
+    @include longShadow(rgba(70, 61, 61));
+  }
+}
+.section-header {
+  color: var(--secondary-header-color);
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 3rem;
+  padding-left: 1ch;
+}
+.animated {
+  animation-duration: 1.5s !important;
+  height: fit-content;
+}
+
+@media only screen and (max-width: 759px) {
+  @for $i from 1 through 4 {
+    ##{nth($sectionSelectorList, $i)}::before {
+      font-size: 26vw !important;
+    }
+  }
+}
