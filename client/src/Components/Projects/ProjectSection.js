@@ -3,11 +3,12 @@ import Project from "../Projects/Project";
 import ScrollAnimation from "react-animate-on-scroll";
 import SectionHeader from "../../Modules/SectionHeader";
 import projectList from "../../Constants/projectList";
+import "../../Style/projectDetails.scss";
 
 const ProjectSection = () => {
   return (
     <ScrollAnimation
-      animateIn="fadeInRight"
+      animateIn="fadeInRightCustom"
       animateOnce={true}
       delay={1.5}
       offset={50}

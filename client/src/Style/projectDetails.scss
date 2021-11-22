@@ -171,14 +171,6 @@
   width: 300px;
   height: auto;
 }
-@keyframes fadeInRight {
-  from {
-    transform: translate3d(100%, 0, 0);
-  }
-  to {
-    transform: none;
-  }
-}
 
 #project6 {
   grid-column: 1 span 1;
@@ -223,6 +215,20 @@
     cursor: auto;
   }
 }
+
+.fadeInRightCustom {
+  animation: fadeInRightCustomAnimation 1s ease;
+}
+@keyframes fadeInRightCustomAnimation {
+  from {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+  }
+  to {
+    transform: none;
+    -webkit-transform: none;
+  }
+}
 .animated {
   .detail-offcanvas {
     position: fixed;
@@ -230,12 +236,14 @@
     width: 60vw;
     right: 0;
     top: 0;
+    -webkit-top: 0;
     background: linear-gradient(rgb(22, 22, 22), var(--primary-bg-color));
     z-index: 70 !important;
     overflow: auto;
     box-sizing: border-box;
     padding: 30px;
     border-left: white 1px solid;
+    contain: none !important;
     animation: off-canvas-animation 0.6s forwards ease-in;
     &:hover {
       cursor: auto;
