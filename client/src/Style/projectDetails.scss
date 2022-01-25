@@ -304,6 +304,17 @@
       transform: translateX(-50%);
       perspective: 1500px;
       display: flex;
+      &::before {
+        content: "";
+        position: absolute;
+        background: url(../Assets/click-here.png);
+        background-size: 100% 100%;
+        left: -80px;
+        top: -55px;
+        width: 75px;
+        height: 75px;
+        z-index: 9999 !important;
+      }
 
       @for $i from 2 through 8 {
         .detail-image:nth-of-type(#{$i}) {

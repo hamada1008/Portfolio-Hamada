@@ -7,22 +7,22 @@ const Skills = () => {
   const currentSkills = [
     "HTML",
     "CSS",
-    "SCSS",
+    "SASS",
     "JavaScript",
+    "TypeScript",
     "React",
     "React Native",
     "Redux",
     "Bootstrap",
-    "Material UI",
     "NodeJs",
     "Express",
     "Passport",
-    "EJS",
+    "Socket IO",
     "MongoDB",
-    "Mongoose",
-    "Heroku",
     "JWT",
     "RESTApi",
+    "Jest",
+    "Mocha",
   ];
 
   return (

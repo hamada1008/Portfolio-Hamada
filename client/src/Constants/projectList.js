@@ -31,6 +31,14 @@ import mbnPr4 from "../Images/MyBestNanny/mbnPr4.PNG";
 import mbnPr5 from "../Images/MyBestNanny/mbnPr5.PNG";
 import mbnPr6 from "../Images/MyBestNanny/mbnPr6.PNG";
 import mbnPr7 from "../Images/MyBestNanny/mbnPr7.PNG";
+import unoParent from "../Images/Uno/unoParent.PNG";
+import unoPr1 from "../Images/Uno/unoPr1.PNG";
+import unoPr2 from "../Images/Uno/unoPr2.PNG";
+import unoPr3 from "../Images/Uno/unoPr3.PNG";
+import unoPr4 from "../Images/Uno/unoPr4.PNG";
+import unoPr5 from "../Images/Uno/unoPr5.PNG";
+import unoPr6 from "../Images/Uno/unoPr6.PNG";
+import unoPr7 from "../Images/Uno/unoPr7.PNG";
 
 class Projects {
   constructor(
@@ -91,17 +99,17 @@ const projectList = [
     "https://pi59o.csb.app/"
   ),
 
-  new Projects(
-    4,
-    "BlogR",
-    "A Blog Web application",
-    blogR,
-    [blogR, blogRPr1, blogRPr2, blogRPr3],
-    "A back-end web application that has the core feature of a blogging website, a place where you can create new blogs and another place where you can view all the blogs, made possible with Node Js and essentially with Express Js and the template engine EJS.",
-    ["JavaScript", "Node Js", "Express", "EJS"],
-    "https://github.com/hamada1008/Blog-Website",
-    "https://ejs-blogr.herokuapp.com/"
-  ),
+  // new Projects(
+  //   4,
+  //   "BlogR",
+  //   "A Blog Web application",
+  //   blogR,
+  //   [blogR, blogRPr1, blogRPr2, blogRPr3],
+  //   "A back-end web application that has the core feature of a blogging website, a place where you can create new blogs and another place where you can view all the blogs, made possible with Node Js and essentially with Express Js and the template engine EJS.",
+  //   ["JavaScript", "Node Js", "Express", "EJS"],
+  //   "https://github.com/hamada1008/Blog-Website",
+  //   "https://ejs-blogr.herokuapp.com/"
+  // ),
   new Projects(
     5,
     "Native Shopping",
@@ -148,6 +156,32 @@ const projectList = [
     ],
     "https://github.com/hamada1008/MERN-App-My-Best-Nanny",
     "https://mybestnannys.herokuapp.com/"
+  ),
+  new Projects(
+    4,
+    "Uno Online",
+    "An online Multiplayer & Singleplayer Uno Game",
+    unoParent,
+    [unoParent, unoPr1, unoPr2, unoPr3, unoPr4, unoPr5, unoPr6, unoPr7],
+    `An online multiplayer & singleplayer Uno web game that allowing it's users to play one vs one Uno games either versus the CPU or versus a
+    friend by creating and joining custom play rooms. This game have other features besides the main game
+    such as authentication, guest login, chatting and
+    game rating tracking. This application is designed for bored people who want a quick Uno game ^-^ `,
+    [
+      "React (hooks)",
+      "React Router v6",
+      "SASS",
+      "JavaScript",
+      "TypeScript",
+      "Bootstrap",
+      "Node",
+      "Express",
+      "Socket IO",
+      "JWT",
+      "MongoDB",
+    ],
+    "https://github.com/hamada1008/online-uno",
+    "https://online-uno.netlify.app/"
   ),
 ];
 

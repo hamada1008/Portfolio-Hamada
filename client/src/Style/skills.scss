@@ -2,21 +2,22 @@ $url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_
   "https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg",
   "https://upload.wikimedia.org/wikipedia/commons/9/96/Sass_Logo_Color.svg",
   "https://upload.wikimedia.org/wikipedia/commons/d/d4/Javascript-shield.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
   "../Assets/RN.png", "../Assets/RN.png",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg",
   "https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg",
   "https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg",
   "../Assets/express.svg", "https://www.passportjs.org/images/logo.svg",
-  "https://icons-for-free.com/iconfiles/png/512/vscode+icons+type+ejs-1324451285990778004.png",
+  "../Assets/socket-io.svg",
   "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-  "../Assets/mongoose.png",
-  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/heroku/heroku-plain.svg",
-  "https://jwt.io/img/pic_logo.svg", "../Assets/rest.png";
+  "https://jwt.io/img/pic_logo.svg", "../Assets/rest.png",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg",
+  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mocha/mocha-plain.svg";
 
 #skills {
   height: 490px;
 }
+
 .skills-container {
   display: flex;
   flex-flow: wrap row;
@@ -55,11 +56,11 @@ $url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_
       @if $i == 4 {
         clip-path: inset(14% 0 0 0);
       }
-      @if $i == 5 {
+      @if $i == 6 {
         clip-path: inset(0 0 14% 0);
         transform: translateX(19%);
       }
-      @if $i == 6 {
+      @if $i == 7 {
         clip-path: inset(0 0 14% 0);
         transform: translateX(19%);
       }
